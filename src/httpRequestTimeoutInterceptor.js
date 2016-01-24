@@ -5,7 +5,7 @@ angular.module('angularCancelOnNavigateModule')
         config = config || {};
 
         if (config.timeout === undefined && config.cancelOnRouteChange) {
-          config.timeout = HttpPendingRequestsService.newTimeout(config.url, config);
+          config.timeout = HttpPendingRequestsService.newTimeout();
         }
         return config;
       },

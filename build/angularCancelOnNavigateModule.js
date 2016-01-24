@@ -21,8 +21,7 @@ angular.module('angularCancelOnNavigateModule')
   .service('HttpPendingRequestsService', function ($q) {
     var cancelPromises = [];
 
-    function newTimeout(url, config) {
-		console.log(url, config);
+    function newTimeout() {
       var cancelPromise = $q.defer();
       cancelPromises.push(cancelPromise);
       return cancelPromise.promise;
@@ -49,7 +48,7 @@ angular.module('angularCancelOnNavigateModule')
         config = config || {};
 
         if (config.timeout === undefined && config.cancelOnRouteChange) {
-          config.timeout = HttpPendingRequestsService.newTimeout(config.url, config);
+          config.timeout = HttpPendingRequestsService.newTimeout();
         }
         return config;
       },

@@ -2,8 +2,7 @@ angular.module('angularCancelOnNavigateModule')
   .service('HttpPendingRequestsService', function ($q) {
     var cancelPromises = [];
 
-    function newTimeout(url, config) {
-		console.log(url, config);
+    function newTimeout() {
       var cancelPromise = $q.defer();
       cancelPromises.push(cancelPromise);
       return cancelPromise.promise;
