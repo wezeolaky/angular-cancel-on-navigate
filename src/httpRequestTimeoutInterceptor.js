@@ -11,7 +11,7 @@ angular.module('angularCancelOnNavigateModule')
       },
 
       responseError: function (response) {
-        if (response.config.timeout.isGloballyCancelled) {
+        if (response.config.timeout && response.config.timeout.isGloballyCancelled) {
           return $q.defer().promise;
         }
         return $q.reject(response);
